@@ -12,8 +12,18 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
-
-        return []; // replace this return statement with your own
+        
+        // Step 1: Create an array of size 'length' to store the multiples.
+        // Step 2: Use a loop to fill the array. For each index i (from 0 to length-1):
+        //         - Calculate the multiple as number * (i + 1)
+        //         - Store the result in the array at index i
+        // Step 3: Return the filled array.
+        double[] multiples = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +39,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Step 1: Determine the split point. The last 'amount' elements will move to the front.
+        //         The split point is at index data.Count - amount.
+        // Step 2: Use GetRange to get the last 'amount' elements (to move to the front).
+        // Step 3: Use GetRange to get the first part (from start to split point).
+        // Step 4: Clear the original list.
+        // Step 5: Add the last 'amount' elements to the list.
+        // Step 6: Add the first part to the list after that.
+        int splitPoint = data.Count - amount;
+        List<int> endPart = data.GetRange(splitPoint, amount);
+        List<int> startPart = data.GetRange(0, splitPoint);
+        data.Clear();
+        data.AddRange(endPart);
+        data.AddRange(startPart);
     }
 }
