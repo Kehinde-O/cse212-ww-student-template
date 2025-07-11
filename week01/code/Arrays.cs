@@ -21,7 +21,7 @@ public static class Arrays
         double[] multiples = new double[length];
         for (int i = 0; i < length; i++)
         {
-            multiples[i] = number * (i + 1);
+            multiples[i] = number * (i + 1); 
         }
         return multiples;
     }
