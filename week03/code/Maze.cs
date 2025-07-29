@@ -32,7 +32,19 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // Check if current position exists and left movement is allowed
+        if (!_mazeMap.ContainsKey((_currX, _currY)) || !_mazeMap[(_currX, _currY)][0])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        // Check if moving left would go outside the maze boundaries
+        if (_currX - 1 < 1)
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        _currX--;
     }
 
     /// <summary>
@@ -41,7 +53,19 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        // Check if current position exists and right movement is allowed
+        if (!_mazeMap.ContainsKey((_currX, _currY)) || !_mazeMap[(_currX, _currY)][1])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        // Check if moving right would go outside the maze boundaries
+        if (_currX + 1 > 6)
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        _currX++;
     }
 
     /// <summary>
@@ -50,7 +74,19 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        // Check if current position exists and up movement is allowed
+        if (!_mazeMap.ContainsKey((_currX, _currY)) || !_mazeMap[(_currX, _currY)][2])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        // Check if moving up would go outside the maze boundaries
+        if (_currY - 1 < 1)
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        _currY--;
     }
 
     /// <summary>
@@ -59,7 +95,19 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        // Check if current position exists and down movement is allowed
+        if (!_mazeMap.ContainsKey((_currX, _currY)) || !_mazeMap[(_currX, _currY)][3])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        // Check if moving down would go outside the maze boundaries
+        if (_currY + 1 > 6)
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        
+        _currY++;
     }
 
     public string GetStatus()
